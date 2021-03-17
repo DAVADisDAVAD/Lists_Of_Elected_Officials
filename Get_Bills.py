@@ -77,6 +77,7 @@ while i <= Number:
 
         # Get bill sponsors
 
+
         # Get bill cosponsors (skip till later if difficult)
 
         # Get commitees
