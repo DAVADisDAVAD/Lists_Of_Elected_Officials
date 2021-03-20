@@ -1,0 +1,73 @@
+Get_Congress_Members.py
+    Responsible for
+        Gets a list of all active congressman
+    Steps used
+        Accesses URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
+        Gets Link to congress.gov page for congressman = link
+        Get name of congressman = Name
+        Get party affiliation of congressman = Party
+        Get district of congressman = District
+        Create list of lists [Name, Party, District, link]
+    Fixes Required
+        None
+    Tools Used
+        import requests
+        from bs4 import BeautifulSoup
+
+Get_Senate_Member.py
+    Responsible for
+        Gets a list of all active senators
+    Steps used
+        Accesses URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
+        Gets Link to congress.gov page for senators = link
+        Get name of senators = Name
+        Get party affiliation of senators = Party
+        Get district of senators = District
+        Create list of lists [Name, Party, District, link] = EndList
+    Fixes Required
+        None
+    Tools Used
+        import requests
+        from bs4 import BeautifulSoup
+
+Get_Info.py
+    Responsible for
+        Gets a list of all active senators
+    Steps used
+        Accesses URL of each congressman
+            Gets Link to congressman personal website = website
+            Get congressman office address = address
+            Get congressman office phone = phone
+            Get party affiliation of congressman = Party
+            Get district of congressman = District
+            Create list of lists [Member[0], Party, Member[2], Member[3], website, phone, address]] = Congress_Aggregate
+                Member[0] = Name; Member[2] = District; Member[3] = congress.gov link
+            Save list of lists as Congress_List_Aggregate
+        Accesses URL of each senator
+            Gets Link to senator personal website = website
+            Get senator office address = address
+            Get senator office phone = phone
+            Get party affiliation of senator = Party
+            Get district of senators = District
+            Create list of lists [Member[0], Party, Member[2], Member[3], website, phone, address]] = Congress_Aggregate
+               Member[0] = Name; Member[2] = District; Member[3] = congress.gov link
+            Save list of lists as Senate_List_Aggregate
+    Fixes Required
+        None
+    Tools Used
+        import requests
+        from bs4 import BeautifulSoup
+
+Get_Bills_Congress.py (in progress)
+    Responsible for
+        Gets all bills listed under each senator and saves them to Data/Bills/{Congressman}
+    Steps used
+        Gets congressman list of Congress_List_Aggregate
+        Get URL link from Congressman[3]
+        Empties Bill_List
+        Get last page number from list of bills
+    Fixes Required
+        Make special text reader for Ammendments
+    Tools Used
+        import requests
+        from bs4 import BeautifulSoup
