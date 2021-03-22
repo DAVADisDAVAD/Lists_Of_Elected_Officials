@@ -1,34 +1,74 @@
-Get_Congress_Members.py
-    Responsible for
-        Gets a list of all active congressman
-    Steps used
-        Accesses URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
-        Gets Link to congress.gov page for congressman = link
-        Get name of congressman = Name
-        Get party affiliation of congressman = Party
-        Get district of congressman = District
-        Create list of lists [Name, Party, District, link]
-    Fixes Required
-        None
-    Tools Used
-        import requests
-        from bs4 import BeautifulSoup
+A_Get_Member/
 
-Get_Senate_Member.py
-    Responsible for
-        Gets a list of all active senators
-    Steps used
-        Accesses URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
-        Gets Link to congress.gov page for senators = link
-        Get name of senators = Name
-        Get party affiliation of senators = Party
-        Get district of senators = District
-        Create list of lists [Name, Party, District, link] = EndList
-    Fixes Required
-        None
-    Tools Used
-        import requests
-        from bs4 import BeautifulSoup
+    Get_Congress_Members.py
+        Responsible for
+            Gets a list of all active congressman
+        Steps used
+            Connect to Data_Bases/Congress_Members.db
+            Reset table in DB named Congress_Members
+            Use bs4 & requests to access URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
+            Generate list of congressman from soup
+            Insert into Table Congress_Members and commit
+        Fixes Required
+            Add Display starting at line 74 to its own file
+        Tools Used
+            import requests
+            from bs4 import BeautifulSoup
+            import sqlite3
+            from tkinter import *
+            from tkinter import ttk
+
+    Get_Congress_Members.py
+        Responsible for
+            Gets a list of all active congressman
+        Steps used
+            Connect to Data_Bases/Congress_Members.db
+            Reset table in DB named Congress_Members
+            Use bs4 & requests to access URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
+            Generate list of congressman from soup
+            Insert into Table Congress_Members and commit
+        Fixes Required
+            Add Display starting at line 74 to its own file
+        Tools Used
+            import requests
+            from bs4 import BeautifulSoup
+            import sqlite3
+            from tkinter import *
+            from tkinter import ttk
+
+B_Get_Member_Legislation/
+
+    Get_Bills_Congress.py (in progress)
+        Responsible for
+            Gets all bills listed under each senator and saves them to Data/Bills/{Congressman}
+        Data Base path and table name
+            ../../Data_Bases/Congress_Members.db
+            TABLE Congress_Members
+                [Name text, Party text, District text, Link text]
+        Steps used
+            Connect to Data_Bases/Congress_Members.db
+            Reset table in DB named Congress_Members
+            Use bs4 & requests to access URL = 'https://www.congress.gov/members?q={%22chamber%22:%22Senate%22}&searchResultViewType=expanded'
+            Get last page number from list of bills
+        Fixes Required
+            Make special text reader for Amendments
+        Tools Used
+            import requests
+            from bs4 import BeautifulSoup
+            import sqlite3
+            from tkinter import *
+            from tkinter import ttk
+
+    Get_Bills_Senate.py (in progress)
+
+C_Get_Legislation_Info/
+
+D_Displays/
+
+
+
+
+##### Old and Not yet added to new
 
 Get_Info.py
     Responsible for
@@ -54,20 +94,6 @@ Get_Info.py
             Save list of lists as Senate_List_Aggregate
     Fixes Required
         None
-    Tools Used
-        import requests
-        from bs4 import BeautifulSoup
-
-Get_Bills_Congress.py (in progress)
-    Responsible for
-        Gets all bills listed under each senator and saves them to Data/Bills/{Congressman}
-    Steps used
-        Gets congressman list of Congress_List_Aggregate
-        Get URL link from Congressman[3]
-        Empties Bill_List
-        Get last page number from list of bills
-    Fixes Required
-        Make special text reader for Ammendments
     Tools Used
         import requests
         from bs4 import BeautifulSoup
